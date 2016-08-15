@@ -19,11 +19,4 @@ export default class Storage {
   getLengthStorage() {
     return localStorage.length;
   }
-  getAllStorage() {
-    const storage = [];
-    for (let i = 0; i < localStorage.length; i++) {
-      storage.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-    }
-    return storage;
-  }
 }
