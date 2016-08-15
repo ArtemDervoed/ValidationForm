@@ -1,14 +1,31 @@
+body {
+  display: flex;
+  flex-direction: row;
+}
+.application {
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+}
 header {
   border: 1px solid black;
+  width:500px;
 }
 section {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
 }
+input {
+  width: 300px;
+}
+.info {
+  width:500px;
+}
 .info--block {
   display: flex;
   flex-direction: row;
+  margin-top: 5px;
 }
 .info--user {
   display: flex;
@@ -28,4 +45,5 @@ section {
 }
 footer {
   border: 1px solid black;
+  width:500px;
 }

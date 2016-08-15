@@ -14,10 +14,6 @@ export default class CountryInfo extends React.Component {
           <span>Район проживания</span>
           <input type="text" id="living-area" />
         </div>
-        <div className="info--block">
-          <span>Наличие водительских прав</span>
-          <input type="text" id="driver-license" />
-        </div>
       </div>
     );
   }

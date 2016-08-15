@@ -9,7 +9,7 @@ export default class Section extends React.Component {
   }
 
   apply() {
-    
+
   }
   render() {
     return (
@@ -17,11 +17,6 @@ export default class Section extends React.Component {
         <UserInfo className="info--user"/>
         <StatusInfo className="info--status" />
         <CountryInfo className="info--country"/>
-        <div className="info--block">
-          <span>Дата</span>
-          <input type="text" id="data" />
-        </div>
-        <button className="info--sumbit">Отправить </button>
       </section>
     );
   }
