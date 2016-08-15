@@ -1,6 +1,31 @@
-div {
-  background-color: red;
+header {
+  border: 1px solid black;
 }
-.messsage-box {
-  color: white;
+section {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+.info--block {
+  display: flex;
+  flex-direction: row;
+}
+.info--user {
+  display: flex;
+  flex-direction: column;
+}
+.info--status {
+  display: flex;
+  flex-direction: column;
+}
+.info--country {
+  display: flex;
+  flex-direction: column;
+}
+.info--more {
+  display: flex;
+  flex-direction: column;
+}
+footer {
+  border: 1px solid black;
 }
