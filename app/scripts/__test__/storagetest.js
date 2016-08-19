@@ -1,5 +1,6 @@
 import Storage from './../storage';
-
+// REVIEW: предлагаю переписать данные тесты изолированно друг от друга,
+// они будут независимы и изменения в одних тестах не поломают другие.
 describe('test storage', () => {
   let storage;
   it('create object', (done) => {
