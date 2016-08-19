@@ -7,10 +7,13 @@ export default class Section extends React.Component {
   constructor() {
     super();
   }
-
+  // REVIEW: предполагаю, что в будущем данный метод будет использоваться и будет
+  // непустым, но сейчас это выглядит странно
   apply() {
     
   }
+  // REVIEW: непонятна логика разделения на компоненты UserInfo, StatusInfo, CountryInfo
+  // по сути, это всё относится к инфе о пользователе
   render() {
     return (
       <section className="info">
