@@ -2,6 +2,10 @@ body {
   display: flex;
   flex-direction: row;
 }
+.container {
+  display: flex;
+  flex-direction: row;
+}
 .application {
   width: 500px;
   display: flex;
@@ -17,31 +21,23 @@ section {
   flex-direction: column;
 }
 input {
-  width: 300px;
+  width: 290px;
+  margin: 0 15px;
+}
+button {
+  margin: 5px 15px;
+
+}
+select {
+  width: 290px;
+  margin: 0 15px;
+}
+span {
+  margin: 1px 15px;
 }
 .info {
-  width:500px;
-}
-.info--block {
-  display: flex;
-  flex-direction: row;
-  margin-top: 5px;
-}
-.info--user {
-  display: flex;
-  flex-direction: column;
-}
-.info--status {
-  display: flex;
-  flex-direction: column;
-}
-.info--country {
-  display: flex;
-  flex-direction: column;
-}
-.info--more {
-  display: flex;
-  flex-direction: column;
+  width:320px;
+  margin: 10px 15px;
 }
 footer {
   border: 1px solid black;

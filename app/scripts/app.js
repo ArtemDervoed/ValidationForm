@@ -1,20 +1,23 @@
 import 'styles/index.css';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 import React from 'react';
-import Layout from './view/layout';
-import PageLayout from './page/layout';
-import Storage from './storage';
+import Form from './view/form';
+import Page from './view/page';
+// import Storage from './storage';
 
 export default class Application {
-  constructor() {
-    this.$document = $(document);
-  }
   start() {
-    ReactDOM.render(
-      <div className="application">
-        <Layout />
-        <PageLayout />
-      </div>
-      , document.getElementById('app'));
+    const Header = (props) => <div> Резюме {props.name}</div>;
+    const Footer = (props) => <div> Подпись {props.description}</div>;
+    render(
+      <div>
+        <Header name="User" />
+        <section className="container">
+          <Form />
+          <Page />
+        </section>
+        <Footer description="_____________" />
+      </div>,
+       document.getElementById("app"));
   }
 }
