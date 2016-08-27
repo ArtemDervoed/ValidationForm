@@ -1,3 +1,8 @@
-import	{	createStore	}	from	'redux'
-import	App	from	'./reducers/reducers'
-let	store	=	createStore(App);
+import {createStore} from 'redux';
+import {reducers} from './../reducers/reducers';
+
+export const store = createStore(reducers);
+
+store.subscribe(() => {
+  console.log("changed", store.getState());
+});

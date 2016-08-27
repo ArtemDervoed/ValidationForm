@@ -1,23 +1,34 @@
 import 'styles/index.css';
 import {render} from 'react-dom';
 import React from 'react';
-import Form from './view/form';
-import Page from './view/page';
+import {createStore}	from	'redux';
+import {Provider}	from	'react-redux';
+import {store} from './store/store';
+import Layout from './view/layout';
 // import Storage from './storage';
 
 export default class Application {
   start() {
-    const Header = (props) => <div> Резюме {props.name}</div>;
-    const Footer = (props) => <div> Подпись {props.description}</div>;
+  //  store.dispatch({type:"CHANGE_NAME", payload:"Will"});
+  const  userData = {
+    vacansy: "",
+    cash: "",
+    fio: "",
+    phone: "",
+    mail: "",
+    nationality: "",
+    sex: "",
+    age: "",
+    married: "",
+    education: "",
+    experience: "",
+    date: "",
+    valid: ""
+  }
     render(
-      <div>
-        <Header name="User" />
-        <section className="container">
-          <Form />
-          <Page />
-        </section>
-        <Footer description="_____________" />
-      </div>,
+      <Provider	store={store} >
+        <Layout />
+      </Provider>,
        document.getElementById("app"));
   }
 }

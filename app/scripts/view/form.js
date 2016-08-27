@@ -1,16 +1,27 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {defaultUser} from './../actions/actions';
+
+@connect((store) => {
+  return {
+    user: store.user,
+  };
+})
 
 export default class Form extends React.Component {
-
+  componentWillMount() {
+    this.props.dispatch(defaultUser());
+  }
+  
   render() {
-    return(
+    return (
       <section className="info">
         <span>Вакансия</span>
         <input type="text" className="info--vacancy" />
         <span>Желаемая зарплата</span>
         <input type="text" className="info--cash" />
         <span>ФИО</span>
-        <input type="text" className="info--FIO" />
+        <input type="text" className="info--fullName" />
         <span>Контактный телефон</span>
         <input type="text" className="info--phone" />
         <span>Mail</span>
@@ -40,8 +51,8 @@ export default class Form extends React.Component {
         <input type="date" className="info--date" />
         <span>Разрешаю обработку личных данных</span>
         <input type="checkbox" className="valid" />
-        <button className="info--sumbit" >Отправить </button>
+        <button className="submit" >Отправить </button>
       </section>
-    )
+    );
   }
 }

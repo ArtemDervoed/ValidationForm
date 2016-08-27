@@ -1,8 +1,79 @@
-export const SEND = 'SEND';
-
-export const sendForm = (form) => {
+export const defaultUser = () => {
   return {
-    type: SEND,
-    form
-  }
-}
+    type: "CHANGE_FULL_NAME",
+    payload: "DefaultUser",
+  };
+};
+/* const defaultUser = () => {
+  return {
+    type: "CHANGE_FULL_NAME",
+    payload: "DefaultUser",
+  };
+};
+const defaultUser = () => {
+  return {
+    type: "CHANGE_FULL_NAME",
+    payload: "DefaultUser",
+  };
+};
+const defaultUser = () => {
+  return {
+    type: "CHANGE_FULL_NAME",
+    payload: "DefaultUser",
+  };
+};
+const defaultUser = () => {
+  return {
+    type: "CHANGE_FULL_NAME",
+    payload: "DefaultUser",
+  };
+};
+const defaultUser = () => {
+  return {
+    type: "CHANGE_FULL_NAME",
+    payload: "DefaultUser",
+  };
+};
+const defaultUser = () => {
+  return {
+    type: "CHANGE_FULL_NAME",
+    payload: "DefaultUser",
+  };
+};
+const defaultUser = () => {
+  return {
+    type: "CHANGE_FULL_NAME",
+    payload: "DefaultUser",
+  };
+};
+const defaultUser = () => {
+  return {
+    type: "CHANGE_FULL_NAME",
+    payload: "DefaultUser",
+  };
+};
+const defaultUser = () => {
+  return {
+    type: "CHANGE_FULL_NAME",
+    payload: "DefaultUser",
+  };
+};
+const defaultUser = () => {
+  return {
+    type: "CHANGE_FULL_NAME",
+    payload: "DefaultUser",
+  };
+};
+const defaultUser = () => {
+  return {
+    type: "CHANGE_FULL_NAME",
+    payload: "DefaultUser",
+  };
+};
+const defaultUser = () => {
+  return {
+    type: "CHANGE_FULL_NAME",
+    payload: "DefaultUser",
+  };
+};
+*/

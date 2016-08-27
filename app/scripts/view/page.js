@@ -3,7 +3,7 @@ import React from 'react';
 export default class Page extends React.Component {
 
   render() {
-    return(
+    return (
       <section className="info">
          <div className="info--block">
            <span>Вакансия:</span>
@@ -58,6 +58,6 @@ export default class Page extends React.Component {
            <label/>
          </div>
      </section>
-    )
+   );
   }
 }
