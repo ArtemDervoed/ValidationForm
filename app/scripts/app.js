@@ -9,7 +9,6 @@ import Layout from './view/layout';
 
 export default class Application {
   start() {
-  //  store.dispatch({type:"CHANGE_NAME", payload:"Will"});
   const  userData = {
     vacansy: "",
     cash: "",

@@ -1,79 +1,82 @@
-export const defaultUser = () => {
-  return {
-    type: "CHANGE_FULL_NAME",
-    payload: "DefaultUser",
+// косяк с модулем
+
+export default class Actions {
+  changeFullName(fullName) {
+    return {
+      type: "CHANGE_FULL_NAME",
+      payload: fullName,
+    };
   };
-};
-/* const defaultUser = () => {
-  return {
-    type: "CHANGE_FULL_NAME",
-    payload: "DefaultUser",
+  changeVacancy(vacancy) {
+    return {
+      type: "CHANGE_VACANCY",
+      payload: vacancy,
+    };
   };
-};
-const defaultUser = () => {
-  return {
-    type: "CHANGE_FULL_NAME",
-    payload: "DefaultUser",
+  cangeCash(cash) {
+    return {
+      type: "CHANGE_CASH",
+      payload: cash,
+    };
   };
-};
-const defaultUser = () => {
-  return {
-    type: "CHANGE_FULL_NAME",
-    payload: "DefaultUser",
+  changePhone(phone) {
+    return {
+      type: "CHANGE_PHONE",
+      payload: phone,
+    };
   };
-};
-const defaultUser = () => {
-  return {
-    type: "CHANGE_FULL_NAME",
-    payload: "DefaultUser",
+  changeMail(mail) {
+    return {
+      type: "CHANGE_MAIL",
+      payload: mail,
+    };
   };
-};
-const defaultUser = () => {
-  return {
-    type: "CHANGE_FULL_NAME",
-    payload: "DefaultUser",
+  changeNationality(nationality) {
+    return {
+      type: "CHANGE_NATIONALITY",
+      payload: nationality,
+    };
   };
-};
-const defaultUser = () => {
-  return {
-    type: "CHANGE_FULL_NAME",
-    payload: "DefaultUser",
+  changeSex(sex) {
+    return {
+      type: "CHANGE_SEX",
+      payload: sex,
+    };
   };
-};
-const defaultUser = () => {
-  return {
-    type: "CHANGE_FULL_NAME",
-    payload: "DefaultUser",
+  changeAge(age) {
+    return {
+      type: "CHANGE_AGE",
+      payload: age,
+    };
   };
-};
-const defaultUser = () => {
-  return {
-    type: "CHANGE_FULL_NAME",
-    payload: "DefaultUser",
+  changeMarried(married) {
+    return {
+      type: "CHANGE_MARRIED",
+      payload: married,
+    };
   };
-};
-const defaultUser = () => {
-  return {
-    type: "CHANGE_FULL_NAME",
-    payload: "DefaultUser",
+  changeEducation(education) {
+    return {
+      type: "CHANGE_EDUCATION",
+      payload: education,
+    };
   };
-};
-const defaultUser = () => {
-  return {
-    type: "CHANGE_FULL_NAME",
-    payload: "DefaultUser",
+  changeExperience(experience) {
+    return {
+      type: "CHANGE_EXPEREINCE",
+      payload: experience,
+    };
   };
-};
-const defaultUser = () => {
-  return {
-    type: "CHANGE_FULL_NAME",
-    payload: "DefaultUser",
+  changeDate(date) {
+    return {
+      type: "CHANGE_DATE",
+      payload: date,
+    };
   };
-};
-const defaultUser = () => {
-  return {
-    type: "CHANGE_FULL_NAME",
-    payload: "DefaultUser",
+  changeValid(valid) {
+    return {
+      type: "CHANGE_VALID",
+      payload: valid,
+    };
   };
-};
-*/
+}

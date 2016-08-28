@@ -1,18 +1,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {defaultUser} from './../actions/actions';
-
+// import* as actions from './../actions/actions';
+// чет какой то косяк с импортом
 @connect((store) => {
   return {
     user: store.user,
   };
 })
-
 export default class Form extends React.Component {
   componentWillMount() {
-    this.props.dispatch(defaultUser());
+    // console.log(actions);
+    // this.props.dispatch(actions.changeFullName("LolLOOOOl"));
+    // не работает
   }
-  
+
   render() {
     return (
       <section className="info">

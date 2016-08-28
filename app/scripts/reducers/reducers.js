@@ -48,7 +48,7 @@ const userReducer = (
     case "CHANGE_EDUCATION": {
       state = {...state, education: action.payload};
     } break;
-    case "CHANGE_EXPEREICE": {
+    case "CHANGE_EXPEREINCE": {
       state = {...state, experience: action.payload};
     } break;
     case "CHANGE_DATE": {
