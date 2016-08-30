@@ -35,6 +35,10 @@ select {
 span {
   margin: 1px 15px;
 }
+.info--block {
+  display: flex;
+  flex-direction: initial;
+}
 .info {
   width:320px;
   margin: 10px 15px;

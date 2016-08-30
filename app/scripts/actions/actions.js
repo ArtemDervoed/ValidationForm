@@ -36,7 +36,7 @@ export const changeNationality = (nationality) => {
 };
 export const changeSex = (sex) => {
   return {
-    type: "CHANGE_SEX",
+    type: "CHANGE_GENDER",
     payload: sex,
   };
 };
@@ -58,7 +58,7 @@ export const changeEducation = (education) => {
     payload: education,
   };
 };
-export const changeExperience = (experience)=> {
+export const changeExperience = (experience) => {
   return {
     type: "CHANGE_EXPEREINCE",
     payload: experience,

@@ -9,21 +9,6 @@ import Layout from './view/layout';
 
 export default class Application {
   start() {
-  const  userData = {
-    vacansy: "",
-    cash: "",
-    fio: "",
-    phone: "",
-    mail: "",
-    nationality: "",
-    sex: "",
-    age: "",
-    married: "",
-    education: "",
-    experience: "",
-    date: "",
-    valid: ""
-  }
     render(
       <Provider	store={store} >
         <Layout />

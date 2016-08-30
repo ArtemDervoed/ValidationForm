@@ -5,11 +5,11 @@ const userReducer = (
   state = {
     vacansy: "",
     cash: "",
-    fio: "",
+    fullName: "",
     phone: "",
     mail: "",
     nationality: "",
-    sex: "",
+    gender: "",
     age: "",
     married: "",
     education: "",
@@ -36,8 +36,8 @@ const userReducer = (
     case "CHANGE_NATIONALITY": {
       state = {...state, nationality: action.payload};
     } break;
-    case "CHANGE_SEX": {
-      state = {...state, sex: action.payload};
+    case "CHANGE_GENDER": {
+      state = {...state, gender: action.payload};
     } break;
     case "CHANGE_AGE": {
       state = {...state, age: action.payload};

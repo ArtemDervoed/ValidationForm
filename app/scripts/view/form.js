@@ -5,7 +5,7 @@ import {
   changeVacancy,
   changePhone,
   changeMail,
-  changeSex,
+  changeGender,
   changeAge,
   changeNationality,
   changeMarried,
@@ -55,6 +55,9 @@ export default class Form extends React.Component {
   updateDate(event) {
     this.props.dispatch(changeDate(event.target.value));
   }
+  updateValid(event) {
+    this.props.dispatch(changeValid(event.target.value));
+  }
   render() {
     return (
       <section className="info">
@@ -71,7 +74,7 @@ export default class Form extends React.Component {
         <span>Гражданство</span>
         <input type="text" className="info--nationality" onChange={this.updateNationality.bind(this)}/>
         <span>Пол</span>
-        <select name="sex" className="info--sex" >
+        <select name="sex" className="info--gender" >
           <option value="male">М</option>
           <option value="female">Ж</option>
         </select>
@@ -92,7 +95,7 @@ export default class Form extends React.Component {
         <span>Дата</span>
         <input type="date" className="info--date" onChange={this.updateDate.bind(this)}/>
         <span>Разрешаю обработку личных данных</span>
-        <input type="checkbox" className="valid" />
+        <input type="checkbox" className="valid" onChange={this.updateValid.bind(this)}/>
         <button className="submit" >Отправить </button>
       </section>
     );
