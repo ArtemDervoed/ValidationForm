@@ -38,6 +38,7 @@ span {
 .info--block {
   display: flex;
   flex-direction: initial;
+  margin: 1px 15px;
 }
 .info {
   width:320px;
