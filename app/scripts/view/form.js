@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import Storage from '../storage';
 import {
   changeFullName,
   changeVacancy,
@@ -22,9 +23,7 @@ import {
   };
 })
 export default class Form extends React.Component {
-  componentWillMount() {
 
-  }
   updateVacancy(event) {
     this.props.dispatch(changeVacancy(event.target.value));
   }
@@ -57,6 +56,11 @@ export default class Form extends React.Component {
   }
   updateValid(event) {
     this.props.dispatch(changeValid(event.target.value));
+  }
+  send(event) {
+    let storage = new Storage();
+    storage.addData(Math.random(),this.props.user);
+    console.log(localStorage);
   }
   render() {
     return (
@@ -96,7 +100,7 @@ export default class Form extends React.Component {
         <input type="date" className="info--date" onChange={this.updateDate.bind(this)}/>
         <span>Разрешаю обработку личных данных</span>
         <input type="checkbox" className="valid" onChange={this.updateValid.bind(this)}/>
-        <button className="submit" >Отправить </button>
+        <button className="send" onClick={this.send.bind(this)} >Отправить </button>
       </section>
     );
   }

@@ -5,7 +5,6 @@ import {createStore}	from	'redux';
 import {Provider}	from	'react-redux';
 import {store} from './store/store';
 import Layout from './view/layout';
-// import Storage from './storage';
 
 export default class Application {
   start() {

@@ -1,77 +1,84 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {store} from '../store/store';
 
-export default class Page extends React.Component {
+class Page extends React.Component {
   render() {
-    const state = {
-      vacansy: "",
-      cash: "",
-      fullName: "",
-      phone: "",
-      mail: "",
-      nationality: "",
-      gender: "",
-      age: "",
-      married: "",
-      education: "",
-      experience: "",
-      date: "",
-      valid: ""
-    };
-    const Vacansy = (state) => <div>Вакансия:{state.vacansy}</div>
-    const Cash = (state) => <div>Желаемая зарплата:{state.cash}</div>
-    const FullName = (state) => <div>ФИО:{state.fullName}</div>
-    const Phone = (state) => <div>Контактный телефон:{state.phone}</div>
-    const Mail = (state) => <div>Mail:{state.mail}</div>
-    const Nationality = (state) => <div>Гражданство:{state.nationality}</div>
-    const Gender = (state) => <div>Пол:{state.gender}</div>
-    const Age = (state) => <div>Возраст:{state.age}</div>
-    const Married = (state) => <div>Семейное положение:{state.married}</div>
-    const Education = (state) => <div>Образование:{state.education}</div>
-    const Experience = (state) => <div>Опыт работы:{state.experience}</div>
-    const Date = (state) => <div>Дата:{state.date}</div>
-    const Valid = (state) => <div>Разрешаю обработку личных данных:{state.valid}</div>
+    console.log(this.props);
+    const Vacansy = () => <div> Вакансия:</div>
+    const Cash = () => <div>Желаемая зарплата:</div>
+    const FullName = () => <div>ФИО:</div>
+    const Phone = () => <div>Контактный телефон:</div>
+    const Mail = () => <div>Mail:</div>
+    const Nationality = () => <div>Гражданство:</div>
+    const Gender = () => <div>Пол:</div>
+    const Age = () => <div>Возраст:</div>
+    const Married = () => <div>Семейное положение:</div>
+    const Education = () => <div>Образование:</div>
+    const Experience = () => <div>Опыт работы:</div>
+    const Date = () => <div>Дата:</div>
+    const Valid = () => <div>Разрешаю обработку личных данных:</div>
     return (
       <section className="info">
          <div className="info--block">
-          <Vacansy vacansy={state.vacansy} />
+          <Vacansy value="Вакансия:"/>
+          <div>{this.props.user.vacansy}</div>
          </div>
          <div className="info--block">
-           <Cash cash={state.cash} />
+           <Cash />
+           <div>{this.props.user.cash}</div>
          </div>
          <div className="info--block">
-           <FullName fullName={state.fullName} />
+           <FullName />
+           <div>{this.props.user.fullName}</div>
          </div>
          <div className="info--block">
-           <Phone phone={state.phone} />
+           <Phone />
+           <div>{this.props.user.phone}</div>
          </div>
          <div className="info--block">
-           <Mail mail={state.mail} />
+           <Mail />
+           <div>{this.props.user.mail}</div>
          </div>
          <div className="info--block">
-           <Nationality nationality={state.nationality} />
+           <Nationality />
+           <div>{this.props.user.nationality}</div>
          </div>
          <div className="info--block">
-           <Gender gender={state.gender} />
+           <Gender />
+           <div>{this.props.user.gender}</div>
          </div>
          <div className="info--block">
-          <Age age={state.age} />
+          <Age />
+          <div>{this.props.user.age}</div>
          </div>
          <div className="info--block">
-           <Married married={state.married} />
+           <Married />
+           <div>{this.props.user.married}</div>
          </div>
          <div className="info--block">
-           <Education education={state.education} />
+           <Education />
+           <div>{this.props.user.education}</div>
          </div>
          <div className="info--block">
-           <Experience experience={state.experience} />
+           <Experience />
+           <div>{this.props.user.experience}</div>
          </div>
          <div className="info--block">
-           <Date date={state.date} />
+           <Date />
+           <div>{this.props.user.date}</div>
          </div>
          <div className="info--block">
-           <Valid valid={state.valid} />
+           <Valid />
+           <div>{this.props.user.valid}</div>
          </div>
      </section>
    );
-  }
+ }
 }
+
+const	mapStateToProps	=	(state)	=> ({
+  ...state,
+});
+
+export default connect(mapStateToProps)(Page);
