@@ -7,7 +7,7 @@ body {
   flex-direction: row;
 }
 .warning {
-  border: 2px solid red; 
+  border: 2px solid red;
 }
 .application {
   width: 500px;

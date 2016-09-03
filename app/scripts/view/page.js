@@ -17,7 +17,7 @@ class Page extends React.Component {
     const Education = () => <div>Образование:</div>
     const Experience = () => <div>Опыт работы:</div>
     const Date = () => <div>Дата:</div>
-    const Valid = () => <div>Разрешаю обработку личных данных:</div>
+    const Valid = () => <div>Данные действительны:</div>
     return (
       <section className="info">
          <div className="info--block">

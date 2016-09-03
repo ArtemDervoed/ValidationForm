@@ -35,9 +35,21 @@ export default class Form extends React.Component {
   }
   updatePhone(event) {
     this.props.dispatch(changePhone(event.target.value));
+    const phone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/g;
+    if(phone.test(event.target.value)) {
+      event.target.className = "info--phone";
+    } else {
+      event.target.className = "info--phone warning";
+    }
   }
   updateMail(event) {
     this.props.dispatch(changeMail(event.target.value));
+    const mail = /[0-9a-z_]+@[0-9a-z_^\.]+\.[a-z]{2,3}/g;
+    if(mail.test(event.target.value)) {
+      event.target.className = "info--mail";
+    } else {
+      event.target.className = "info--mail warning";
+    }
   }
   updateNationality(event) {
     this.props.dispatch(changeNationality(event.target.value));
@@ -54,13 +66,32 @@ export default class Form extends React.Component {
   updateDate(event) {
     this.props.dispatch(changeDate(event.target.value));
   }
+  updateExperience(event) {
+  const experienceList = document.getElementById('info--experience');
+    if ( experienceList.selectedIndex != -1) {
+      this.props.dispatch(changeExperience(experienceList.options[experienceList.selectedIndex].text));
+    }
+  }
+  updateGender(event) {
+  const genderList = document.getElementById('info--gender');
+  if ( genderList.selectedIndex != -1) {
+      this.props.dispatch(changeGender(genderList.options[genderList.selectedIndex].text));
+    }
+  }
   updateValid(event) {
-    this.props.dispatch(changeValid(event.target.value));
+    if (document.getElementById('valid').checked) {
+        this.props.dispatch(changeValid("+"));
+    } else {
+      this.props.dispatch(changeValid("-"));
+    }
   }
   send(event) {
     let storage = new Storage();
-    storage.addData(Math.random(),this.props.user);
-    console.log(localStorage);
+    if (document.getElementById('valid').checked) {
+        storage.addData(Math.random(),this.props.user);
+    } else {
+      alert("Данные не подтверждены")
+    }
   }
   render() {
     return (
@@ -78,9 +109,9 @@ export default class Form extends React.Component {
         <span>Гражданство</span>
         <input type="text" className="info--nationality" onChange={this.updateNationality.bind(this)}/>
         <span>Пол</span>
-        <select name="sex" className="info--gender" >
-          <option value="male">М</option>
-          <option value="female">Ж</option>
+        <select name="gender" id="info--gender" onClick={this.updateGender.bind(this)} >
+          <option value="0"> М </option>
+          <option value="1"> Ж </option>
         </select>
         <span>Возраст</span>
         <input type="text" className="info--age" onChange={this.updateAge.bind(this)}/>
@@ -89,17 +120,17 @@ export default class Form extends React.Component {
         <span>Образование</span>
         <input type="text" className="info--education" onChange={this.updateEducation.bind(this)}/>
         <span>Опыт работы</span>
-        <select name="experience" className="info--experience" >
-          <option value="none">Отсутствует</option>
-          <option value="oneYear">1 год</option>
-          <option value="twoYear">2 года</option>
-          <option value="fiveYear">5 лет</option>
-          <option value="moreFiveYear">Более 5 лет</option>
+        <select name="experience" id="info--experience" onClick={this.updateExperience.bind(this)}>
+          <option value="0">Отсутствует</option>
+          <option value="1">1 год</option>
+          <option value="2">2 года</option>
+          <option value="5">5 лет</option>
+          <option value="5+">Более 5 лет</option>
         </select>
         <span>Дата</span>
         <input type="date" className="info--date" onChange={this.updateDate.bind(this)}/>
-        <span>Разрешаю обработку личных данных</span>
-        <input type="checkbox" className="valid" onChange={this.updateValid.bind(this)}/>
+        <span>Данные действительны</span>
+        <input type="checkbox" id="valid" onChange={this.updateValid.bind(this)}/>
         <button className="send" onClick={this.send.bind(this)} >Отправить </button>
       </section>
     );

@@ -34,10 +34,10 @@ export const changeNationality = (nationality) => {
     payload: nationality,
   };
 };
-export const changeSex = (sex) => {
+export const changeGender = (gender) => {
   return {
     type: "CHANGE_GENDER",
-    payload: sex,
+    payload: gender,
   };
 };
 export const changeAge = (age) => {
