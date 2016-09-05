@@ -28,10 +28,10 @@ export default class Form extends React.Component {
     this.props.dispatch(changeVacancy(event.target.value));
     const vacancy = /^[а-яА-ЯёЁa-zA-Z]+$/;
     if (vacancy.test(event.target.value)) {
-      event.target.className = "info--vacancy completed";
+      event.target.className = "info--vacancy __completed";
       condition.vacansy = true;
     } else {
-      event.target.className = "info--vacancy warning";
+      event.target.className = "info--vacancy __warning";
       condition.vacansy = false;
     }
   }
@@ -39,10 +39,10 @@ export default class Form extends React.Component {
     this.props.dispatch(changeCash(event.target.value));
     const cash = /^\d+$/;
     if (cash.test(event.target.value)) {
-      event.target.className = "info--cash completed";
+      event.target.className = "info--cash __completed";
       condition.cash = true;
     } else {
-      event.target.className = "info--cash warning";
+      event.target.className = "info--cash __warning";
       condition.cash = false;
     }
   }
@@ -50,10 +50,10 @@ export default class Form extends React.Component {
     this.props.dispatch(changeFullName(event.target.value));
     const name = /^[А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]+$/;
     if (name.test(event.target.value)) {
-      event.target.className = "info--name completed";
+      event.target.className = "info--name __completed";
       condition.fullName = true;
     } else {
-      event.target.className = "info--name warning";
+      event.target.className = "info--name __warning";
       condition.fullName = false;
     }
   }
@@ -61,10 +61,10 @@ export default class Form extends React.Component {
     this.props.dispatch(changePhone(event.target.value));
     const phone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/g;
     if (phone.test(event.target.value)) {
-      event.target.className = "info--phone completed";
+      event.target.className = "info--phone __completed";
       condition.phone = true;
     } else {
-      event.target.className = "info--phone warning";
+      event.target.className = "info--phone __warning";
       condition.phone = false;
     }
   }
@@ -72,10 +72,10 @@ export default class Form extends React.Component {
     this.props.dispatch(changeMail(event.target.value));
     const mail = /[0-9a-z_]+@[0-9a-z_^\.]+\.[a-z]{2,3}/g;
     if (mail.test(event.target.value)) {
-      event.target.className = "info--mail completed";
+      event.target.className = "info--mail __completed";
       condition.mail = true;
     } else {
-      event.target.className = "info--mail warning";
+      event.target.className = "info--mail __warning";
       condition.mail = false;
     }
   }
@@ -83,10 +83,10 @@ export default class Form extends React.Component {
     this.props.dispatch(changeNationality(event.target.value));
     const nationality = /^[А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]|[А-ЯЁ][а-яё]+$/;
     if (nationality.test(event.target.value)) {
-      event.target.className = "info--nationality completed";
+      event.target.className = "info--nationality __completed";
       condition.nationality = true;
     } else {
-      event.target.className = "info--nationality warning";
+      event.target.className = "info--nationality __warning";
       condition.nationality = false;
     }
   }
@@ -94,10 +94,10 @@ export default class Form extends React.Component {
     this.props.dispatch(changeAge(event.target.value));
     const age = /^\d+$/;
     if (age.test(event.target.value)) {
-      event.target.className = "info--age completed";
+      event.target.className = "info--age __completed";
       condition.age = true;
     } else {
-      event.target.className = "info--age warning";
+      event.target.className = "info--age __warning";
       condition.age = false;
     }
   }
@@ -105,10 +105,10 @@ export default class Form extends React.Component {
     this.props.dispatch(changeMarried(event.target.value));
     const married = /^[А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]|[А-ЯЁ][а-яё]+$/;
     if (married.test(event.target.value)) {
-      event.target.className = "info--married completed";
+      event.target.className = "info--married __completed";
       condition.married = true;
     } else {
-      event.target.className = "info--married warning";
+      event.target.className = "info--married __warning";
       condition.married = false;
     }
   }
@@ -116,10 +116,10 @@ export default class Form extends React.Component {
     this.props.dispatch(changeEducation(event.target.value));
     const eucation = /^[А-ЯЁ][а-яё]+ [а-яё]|[А-ЯЁ][а-яё]+$/;
     if (eucation.test(event.target.value)) {
-      event.target.className = "info--eucation completed";
+      event.target.className = "info--eucation __completed";
       condition.education = true;
     } else {
-      event.target.className = "info--eucation warning";
+      event.target.className = "info--eucation __warning";
       condition.education = false;
     }
   }
@@ -175,16 +175,22 @@ export default class Form extends React.Component {
       <section className="info">
         <span>Вакансия</span>
         <input type="text" className="info--vacancy" onChange={this.updateVacancy.bind(this)}/>
+        <div className="info--vacancy--help __hidden">Название вакансии на русском языке</div>
         <span>Желаемая зарплата</span>
         <input type="text" className="info--cash" onChange={this.updateCash.bind(this)}/>
+        <div className="info--vacancy--help __hidden">Поле заполняется числами без указания валюты</div>
         <span>ФИО</span>
         <input type="text" className="info--fullName" onChange={this.updateName.bind(this)}/>
+        <div className="info--vacancy--help __hidden">Введите ФИО полностью</div>
         <span>Контактный телефон</span>
         <input type="text" className="info--phone" onChange={this.updatePhone.bind(this)}/>
+        <div className="info--vacancy--help __hidden">Вводить телефон только цифрами без символов - ()</div>
         <span>Mail</span>
         <input type="text" className="info--mail" onChange={this.updateMail.bind(this)}/>
+        <div className="info--vacancy--help __hidden">Обязательное поле</div>
         <span>Гражданство</span>
         <input type="text" className="info--nationality" onChange={this.updateNationality.bind(this)}/>
+        <div className="info--vacancy--help __hidden">На русском языке</div>
         <span>Пол</span>
         <select name="gender" id="info--gender" onClick={this.updateGender.bind(this)} >
           <option value="0"> М </option>
@@ -192,10 +198,13 @@ export default class Form extends React.Component {
         </select>
         <span>Возраст</span>
         <input type="text" className="info--age" onChange={this.updateAge.bind(this)}/>
+        <div className="info--vacancy--help __hidden">Возраст вводить числом</div>
         <span>Семейное положение</span>
         <input type="text" className="info--married" onChange={this.updateMarried.bind(this)}/>
+        <div className="info--vacancy--help __hidden">Обязательное поле</div>
         <span>Образование</span>
         <input type="text" className="info--education" onChange={this.updateEducation.bind(this)}/>
+        <div className="info--vacancy--help __hidden">Обязательное поле</div>
         <span>Опыт работы</span>
         <select name="experience" id="info--experience" onClick={this.updateExperience.bind(this)}>
           <option value="0">Отсутствует</option>

@@ -6,10 +6,10 @@ body {
   display: flex;
   flex-direction: row;
 }
-.warning {
+.__warning {
   border: 2px solid red;
 }
-.completed {
+.__completed {
   border: 2px solid green;
 }
 .application {
@@ -25,6 +25,16 @@ section {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
+}
+.info--vacancy--help {
+  position: absolute;
+  height: 10px;
+  width: 185px;
+  background-color: white;
+  margin-left: 125px;
+}
+.__hidden {
+  display: none;
 }
 input {
   width: 290px;
