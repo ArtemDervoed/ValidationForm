@@ -26,18 +26,36 @@ export default class Form extends React.Component {
 
   updateVacancy(event) {
     this.props.dispatch(changeVacancy(event.target.value));
+    const vacancy = /^[а-яА-ЯёЁa-zA-Z]+$/;
+    if (vacancy.test(event.target.value)) {
+      event.target.className = "info--vacancy completed";
+    } else {
+      event.target.className = "info--vacancy warning";
+    }
   }
   updateCash(event) {
     this.props.dispatch(changeCash(event.target.value));
+    const cash = /^\d+$/;
+    if (cash.test(event.target.value)) {
+      event.target.className = "info--cash completed";
+    } else {
+      event.target.className = "info--cash warning";
+    }
   }
   updateName(event) {
     this.props.dispatch(changeFullName(event.target.value));
+    const name = /^[А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]+$/;
+    if (name.test(event.target.value)) {
+      event.target.className = "info--name completed";
+    } else {
+      event.target.className = "info--name warning";
+    }
   }
   updatePhone(event) {
     this.props.dispatch(changePhone(event.target.value));
     const phone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/g;
-    if(phone.test(event.target.value)) {
-      event.target.className = "info--phone";
+    if (phone.test(event.target.value)) {
+      event.target.className = "info--phone completed";
     } else {
       event.target.className = "info--phone warning";
     }
@@ -45,23 +63,47 @@ export default class Form extends React.Component {
   updateMail(event) {
     this.props.dispatch(changeMail(event.target.value));
     const mail = /[0-9a-z_]+@[0-9a-z_^\.]+\.[a-z]{2,3}/g;
-    if(mail.test(event.target.value)) {
-      event.target.className = "info--mail";
+    if (mail.test(event.target.value)) {
+      event.target.className = "info--mail completed";
     } else {
       event.target.className = "info--mail warning";
     }
   }
   updateNationality(event) {
     this.props.dispatch(changeNationality(event.target.value));
+    const nationality = /^[А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]|[А-ЯЁ][а-яё]+$/;
+    if (nationality.test(event.target.value)) {
+      event.target.className = "info--nationality completed";
+    } else {
+      event.target.className = "info--nationality warning";
+    }
   }
   updateAge(event) {
     this.props.dispatch(changeAge(event.target.value));
+    const age = /^\d+$/;
+    if (age.test(event.target.value)) {
+      event.target.className = "info--age completed";
+    } else {
+      event.target.className = "info--age warning";
+    }
   }
   updateMarried(event) {
     this.props.dispatch(changeMarried(event.target.value));
+    const married = /^[А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]|[А-ЯЁ][а-яё]+$/;
+    if (married.test(event.target.value)) {
+      event.target.className = "info--married completed";
+    } else {
+      event.target.className = "info--married warning";
+    }
   }
   updateEducation(event) {
     this.props.dispatch(changeEducation(event.target.value));
+    const eucation = /^[А-ЯЁ][а-яё]+ [а-яё]|[А-ЯЁ][а-яё]+$/;
+    if (eucation.test(event.target.value)) {
+      event.target.className = "info--eucation completed";
+    } else {
+      event.target.className = "info--eucation warning";
+    }
   }
   updateDate(event) {
     this.props.dispatch(changeDate(event.target.value));
@@ -85,9 +127,11 @@ export default class Form extends React.Component {
       this.props.dispatch(changeValid("-"));
     }
   }
+
   send(event) {
     let storage = new Storage();
     if (document.getElementById('valid').checked) {
+      // console.log(this.props.user['age']);
         storage.addData(Math.random(),this.props.user);
     } else {
       alert("Данные не подтверждены")

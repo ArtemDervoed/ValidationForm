@@ -9,6 +9,9 @@ body {
 .warning {
   border: 2px solid red;
 }
+.completed {
+  border: 2px solid green;
+}
 .application {
   width: 500px;
   display: flex;
