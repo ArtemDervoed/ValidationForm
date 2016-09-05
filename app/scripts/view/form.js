@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Storage from '../storage';
+import {condition} from './conditionstate'
 import {
   changeFullName,
   changeVacancy,
@@ -23,14 +24,15 @@ import {
   };
 })
 export default class Form extends React.Component {
-
   updateVacancy(event) {
     this.props.dispatch(changeVacancy(event.target.value));
     const vacancy = /^[а-яА-ЯёЁa-zA-Z]+$/;
     if (vacancy.test(event.target.value)) {
       event.target.className = "info--vacancy completed";
+      condition.vacansy = true;
     } else {
       event.target.className = "info--vacancy warning";
+      condition.vacansy = false;
     }
   }
   updateCash(event) {
@@ -38,8 +40,10 @@ export default class Form extends React.Component {
     const cash = /^\d+$/;
     if (cash.test(event.target.value)) {
       event.target.className = "info--cash completed";
+      condition.cash = true;
     } else {
       event.target.className = "info--cash warning";
+      condition.cash = false;
     }
   }
   updateName(event) {
@@ -47,8 +51,10 @@ export default class Form extends React.Component {
     const name = /^[А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]+$/;
     if (name.test(event.target.value)) {
       event.target.className = "info--name completed";
+      condition.fullName = true;
     } else {
       event.target.className = "info--name warning";
+      condition.fullName = false;
     }
   }
   updatePhone(event) {
@@ -56,8 +62,10 @@ export default class Form extends React.Component {
     const phone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/g;
     if (phone.test(event.target.value)) {
       event.target.className = "info--phone completed";
+      condition.phone = true;
     } else {
       event.target.className = "info--phone warning";
+      condition.phone = false;
     }
   }
   updateMail(event) {
@@ -65,8 +73,10 @@ export default class Form extends React.Component {
     const mail = /[0-9a-z_]+@[0-9a-z_^\.]+\.[a-z]{2,3}/g;
     if (mail.test(event.target.value)) {
       event.target.className = "info--mail completed";
+      condition.mail = true;
     } else {
       event.target.className = "info--mail warning";
+      condition.mail = false;
     }
   }
   updateNationality(event) {
@@ -74,8 +84,10 @@ export default class Form extends React.Component {
     const nationality = /^[А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]|[А-ЯЁ][а-яё]+$/;
     if (nationality.test(event.target.value)) {
       event.target.className = "info--nationality completed";
+      condition.nationality = true;
     } else {
       event.target.className = "info--nationality warning";
+      condition.nationality = false;
     }
   }
   updateAge(event) {
@@ -83,8 +95,10 @@ export default class Form extends React.Component {
     const age = /^\d+$/;
     if (age.test(event.target.value)) {
       event.target.className = "info--age completed";
+      condition.age = true;
     } else {
       event.target.className = "info--age warning";
+      condition.age = false;
     }
   }
   updateMarried(event) {
@@ -92,8 +106,10 @@ export default class Form extends React.Component {
     const married = /^[А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]|[А-ЯЁ][а-яё]+$/;
     if (married.test(event.target.value)) {
       event.target.className = "info--married completed";
+      condition.married = true;
     } else {
       event.target.className = "info--married warning";
+      condition.married = false;
     }
   }
   updateEducation(event) {
@@ -101,37 +117,54 @@ export default class Form extends React.Component {
     const eucation = /^[А-ЯЁ][а-яё]+ [а-яё]|[А-ЯЁ][а-яё]+$/;
     if (eucation.test(event.target.value)) {
       event.target.className = "info--eucation completed";
+      condition.education = true;
     } else {
       event.target.className = "info--eucation warning";
+      condition.education = false;
     }
   }
   updateDate(event) {
     this.props.dispatch(changeDate(event.target.value));
+    condition.date = true;
   }
   updateExperience(event) {
   const experienceList = document.getElementById('info--experience');
     if ( experienceList.selectedIndex != -1) {
       this.props.dispatch(changeExperience(experienceList.options[experienceList.selectedIndex].text));
+      condition.experience = true;
     }
   }
   updateGender(event) {
   const genderList = document.getElementById('info--gender');
   if ( genderList.selectedIndex != -1) {
       this.props.dispatch(changeGender(genderList.options[genderList.selectedIndex].text));
+      condition.gender = true;
     }
   }
   updateValid(event) {
     if (document.getElementById('valid').checked) {
         this.props.dispatch(changeValid("+"));
+        condition.valid = true;
     } else {
       this.props.dispatch(changeValid("-"));
+      condition.valid = false;
     }
   }
-
+  checkCondition(data) {
+    let condition = false;
+    for (let i in data) {
+      console.log(i + " " + data[i]);
+      if (data[i]) {
+        condition = true;
+      } else {
+        return false
+      }
+    }
+    return condition;
+  }
   send(event) {
     let storage = new Storage();
-    if (document.getElementById('valid').checked) {
-      // console.log(this.props.user['age']);
+    if (this.checkCondition(condition) && document.getElementById('valid').checked) {
         storage.addData(Math.random(),this.props.user);
     } else {
       alert("Данные не подтверждены")
