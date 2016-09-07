@@ -26,12 +26,14 @@ import {
 export default class Form extends React.Component {
   updateVacancy(event) {
     this.props.dispatch(changeVacancy(event.target.value));
-    const vacancy = /^[а-яА-ЯёЁa-zA-Z]+$/;
+    const vacancy = /^[а-яА-ЯёЁa-zA-Z]/;
     if (vacancy.test(event.target.value)) {
       event.target.className = "info--vacancy __completed";
+      document.getElementsByClassName('info--vacancy--help')[0].className = 'info--vacancy--help __hidden';
       condition.vacansy = true;
     } else {
       event.target.className = "info--vacancy __warning";
+      document.getElementsByClassName('info--vacancy--help')[0].className = 'info--vacancy--help';
       condition.vacansy = false;
     }
   }
@@ -40,9 +42,11 @@ export default class Form extends React.Component {
     const cash = /^\d+$/;
     if (cash.test(event.target.value)) {
       event.target.className = "info--cash __completed";
+      document.getElementsByClassName('info--vacancy--help')[1].className = 'info--vacancy--help __hidden';
       condition.cash = true;
     } else {
       event.target.className = "info--cash __warning";
+      document.getElementsByClassName('info--vacancy--help')[1].className = 'info--vacancy--help';
       condition.cash = false;
     }
   }
@@ -51,9 +55,11 @@ export default class Form extends React.Component {
     const name = /^[А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]+$/;
     if (name.test(event.target.value)) {
       event.target.className = "info--name __completed";
+      document.getElementsByClassName('info--vacancy--help')[2].className = 'info--vacancy--help __hidden';
       condition.fullName = true;
     } else {
       event.target.className = "info--name __warning";
+      document.getElementsByClassName('info--vacancy--help')[2].className = 'info--vacancy--help';
       condition.fullName = false;
     }
   }
@@ -62,9 +68,11 @@ export default class Form extends React.Component {
     const phone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/g;
     if (phone.test(event.target.value)) {
       event.target.className = "info--phone __completed";
+      document.getElementsByClassName('info--vacancy--help')[3].className = 'info--vacancy--help __hidden';
       condition.phone = true;
     } else {
       event.target.className = "info--phone __warning";
+      document.getElementsByClassName('info--vacancy--help')[3].className = 'info--vacancy--help';
       condition.phone = false;
     }
   }
@@ -73,9 +81,11 @@ export default class Form extends React.Component {
     const mail = /[0-9a-z_]+@[0-9a-z_^\.]+\.[a-z]{2,3}/g;
     if (mail.test(event.target.value)) {
       event.target.className = "info--mail __completed";
+      document.getElementsByClassName('info--vacancy--help')[4].className = 'info--vacancy--help __hidden';
       condition.mail = true;
     } else {
       event.target.className = "info--mail __warning";
+      document.getElementsByClassName('info--vacancy--help')[4].className = 'info--vacancy--help';
       condition.mail = false;
     }
   }
@@ -84,9 +94,11 @@ export default class Form extends React.Component {
     const nationality = /^[А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]|[А-ЯЁ][а-яё]+$/;
     if (nationality.test(event.target.value)) {
       event.target.className = "info--nationality __completed";
+      document.getElementsByClassName('info--vacancy--help')[5].className = 'info--vacancy--help __hidden';
       condition.nationality = true;
     } else {
       event.target.className = "info--nationality __warning";
+      document.getElementsByClassName('info--vacancy--help')[5].className = 'info--vacancy--help';
       condition.nationality = false;
     }
   }
@@ -95,9 +107,11 @@ export default class Form extends React.Component {
     const age = /^\d+$/;
     if (age.test(event.target.value)) {
       event.target.className = "info--age __completed";
+      document.getElementsByClassName('info--vacancy--help')[6].className = 'info--vacancy--help __hidden';
       condition.age = true;
     } else {
       event.target.className = "info--age __warning";
+      document.getElementsByClassName('info--vacancy--help')[6].className = 'info--vacancy--help';
       condition.age = false;
     }
   }
@@ -106,9 +120,11 @@ export default class Form extends React.Component {
     const married = /^[А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]|[А-ЯЁ][а-яё]+$/;
     if (married.test(event.target.value)) {
       event.target.className = "info--married __completed";
+      document.getElementsByClassName('info--vacancy--help')[7].className = 'info--vacancy--help __hidden';
       condition.married = true;
     } else {
       event.target.className = "info--married __warning";
+      document.getElementsByClassName('info--vacancy--help')[7].className = 'info--vacancy--help';
       condition.married = false;
     }
   }
@@ -117,9 +133,11 @@ export default class Form extends React.Component {
     const eucation = /^[А-ЯЁ][а-яё]+ [а-яё]|[А-ЯЁ][а-яё]+$/;
     if (eucation.test(event.target.value)) {
       event.target.className = "info--eucation __completed";
+      document.getElementsByClassName('info--vacancy--help')[8].className = 'info--vacancy--help __hidden';
       condition.education = true;
     } else {
       event.target.className = "info--eucation __warning";
+      document.getElementsByClassName('info--vacancy--help')[8].className = 'info--vacancy--help';
       condition.education = false;
     }
   }
@@ -153,7 +171,6 @@ export default class Form extends React.Component {
   checkCondition(data) {
     let condition = false;
     for (let i in data) {
-      console.log(i + " " + data[i]);
       if (data[i]) {
         condition = true;
       } else {
