@@ -1,4 +1,6 @@
 import {createStore} from 'redux';
+// REVIEW: для того, чтобы было как можно меньше относительных путей
+// используй алиасы в вебпаке
 import {reducers} from './../reducers/reducers';
 
 export const store = createStore(reducers);
