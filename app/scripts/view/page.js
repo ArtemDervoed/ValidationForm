@@ -1,10 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
+// REVIEW: зачем тут store, если ты его не используешь?
 import {store} from '../store/store';
 
+// REVIEW: тут можно использовать stateless функцию
 class Page extends React.Component {
   render() {
+    // REVIEW: убирай все console.log из проекта, когда коммитишь изменения -
+    // в коде их не должно их быть, они используюся только для отладки
     console.log(this.props);
+    // REVIEW: Аналогичная ситуация, как с формой - создай универсальную компоненту и используй
+    // её при отрисовке одинаковых элементов
     const Vacansy = () => <div> Вакансия:</div>
     const Cash = () => <div>Желаемая зарплата:</div>
     const FullName = () => <div>ФИО:</div>

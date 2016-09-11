@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Storage from '../storage';
 import {condition} from './conditionstate'
+// REVIEW: используй import * as actions from './../actions/actions';
+// вместо этой огромной простыни названий экшнов
 import {
   changeFullName,
   changeVacancy,
@@ -18,17 +20,31 @@ import {
   changeCash
 } from './../actions/actions';
 
+// REVIEW: использовать декораторы - это тонкий момент. Это экспериментальная часть ES7,
+// она может внезапно измениться или перестать работать. Ден Абрамов (создатель Redux) пока не
+// рекомендует их использовать https://github.com/happypoulp/redux-tutorial/issues/87
 @connect((store) => {
   return {
     user: store.user,
   };
 })
+// REVIEW: Вначале лучше прочитать комментарий в самом низу, относящийся к структуре
 export default class Form extends React.Component {
+  // REVIEW: Мне не нравится, как реализована валидация.
+  // Названия методов не отражают то, что в них происходит на самом деле.
+  // Методы, начинающиеся на update* совмещают в себе и валидацию, и запись в стор одновременно.
+  // REVIEW: Для связи с компонентами в React есть ref https://facebook.github.io/react/docs/more-about-refs.html
+  // Для доступа к элементам внутри используй data-аттрибуты и
+  // метод querySelectorAll() https://developer.mozilla.org/ru/docs/Web/API/Document/querySelectorAll
   updateVacancy(event) {
     this.props.dispatch(changeVacancy(event.target.value));
     const vacancy = /^[а-яА-ЯёЁa-zA-Z]/;
     if (vacancy.test(event.target.value)) {
+      // REVIEW: Так делать не следует. Это создаёт большую связанность между js и стилями.
+      // Менять следует только модификатор, а не весь класс.
       event.target.className = "info--vacancy __completed";
+      // REVIEW: Для работы с DOM-деревом из js существуют data-аттрибуты, используй их.
+      // REVIEW: Не рекомендую использовать тут двойную вложенность, тут она не нужна
       document.getElementsByClassName('info--vacancy--help')[0].className = 'info--vacancy--help __hidden';
       condition.vacansy = true;
     } else {
@@ -168,6 +184,7 @@ export default class Form extends React.Component {
       condition.valid = false;
     }
   }
+  // REVIEW: все приватные методы предлагаю именовать с префиксом "_"
   checkCondition(data) {
     let condition = false;
     for (let i in data) {
@@ -181,6 +198,7 @@ export default class Form extends React.Component {
   }
   send(event) {
     let storage = new Storage();
+    // REVIEW: есть предположение, что это условие не срабатывает
     if (this.checkCondition(condition) && document.getElementById('valid').checked) {
         storage.addData(Math.random(),this.props.user);
     } else {
@@ -189,6 +207,19 @@ export default class Form extends React.Component {
   }
   render() {
     return (
+      // REVIEW:
+      // 1. Мне не нравится спроектированная структура.
+      // По сути это форма, так пусть и будет формой.
+      // Предлагаю такую структуру:
+      // form.form
+      //  div.form--row
+      //    label.form--label
+      //    input.form--input
+      //  ...
+      //  div.form--actions
+      //    button.form--button
+      // 2. Ты изначально выделял каждый элемент как отдельный компонент, а можно сделать один универсальный
+      // компонент (строка формы), в который передавать название, тип и обработчик. Так будет компактнее.
       <section className="info">
         <span>Вакансия</span>
         <input type="text" className="info--vacancy" onChange={this.updateVacancy.bind(this)}/>

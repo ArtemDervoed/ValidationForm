@@ -1,6 +1,11 @@
 import {combineReducers} from 'redux';
 // import Storage from './storage';
 
+// REVIEW: Помню, что говорила про разделение редьюсеров, но поняла, что оно тут не нужно.
+// userReducer выглядит хорошо, предлагаю только вынести значение state по умолчанию в отдельную переменную
+// initialState
+// REVIEW: Используй одинарные кавычки, тут двойные не нужны
+// REVIEW: в названии редьюсера не используй слово reducer, это излишне
 const userReducer = (
   state = {
     vacansy: "",
@@ -18,6 +23,7 @@ const userReducer = (
     valid: ""
     }, action) => {
   switch (action.type) {
+    // REVIEW: Исправь ошибку и приведи к единообразию в именовании
     case "CHANGE_VACANCY": {
       state = {...state, vacansy: action.payload};
     } break;
@@ -60,6 +66,7 @@ const userReducer = (
   }
   return state;
 };
+// REVIEW: Долой мусор из кода!
 /*
 const tweetsReducer = (state=[], action) => {
   switch (action.type) {
@@ -74,6 +81,8 @@ const tweetsReducer = (state=[], action) => {
 };
 */
 export const reducers = combineReducers({
+  // REVIEW: Если назовёшь редьюсер user, можешь тут написать красиво на ES6:)
   user: userReducer,
+  // REVIEW: Долой мусор из кода!
   // tweets: tweetsReducer,
 });
