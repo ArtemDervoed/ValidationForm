@@ -8,15 +8,17 @@ export default class DataRow extends React.Component {
     switch (this.props.name) {
       case 'Вакансия:': {
         this.props.dispatch(actions.changeVacancy(event.target.value));
-        errorMessage[0].style.display = "block";
+        errorMessage[0].style.display = (event.target.value.length > 0) ? "none" : "block";
       } break;
       case 'ФИО:': {
         this.props.dispatch(actions.changeFullName(event.target.value));
-        errorMessage[1].style.display = "block";
+        const fullName = /^[А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]+$/;
+        errorMessage[1].style.display = (fullName.test(event.target.value)) ? "none" : "block";
       } break;
       case 'Контактный телефон:': {
         this.props.dispatch(actions.changePhone(event.target.value));
-        errorMessage[3].style.display = "block";
+        const phone = /[0-9]{5,10}/g;
+        errorMessage[3].style.display = (phone.test(event.target.value)) ? "none" : "block";
       } break;
       case 'Mail:': {
         this.props.dispatch(actions.changeMail(event.target.value));
@@ -25,15 +27,16 @@ export default class DataRow extends React.Component {
       } break;
       case 'Опыт работы:': {
         this.props.dispatch(actions.changeExperience(event.target.value));
-        errorMessage[4].style.display = "block";
+        errorMessage[4].style.display = (event.target.value.length > 0) ? "none" : "block";
       } break;
       case 'Образование:': {
         this.props.dispatch(actions.changeEducation(event.target.value));
-        errorMessage[5].style.display = "block";
+        errorMessage[5].style.display = (event.target.value.length > 0) ? "none" : "block";
       } break;
       case 'Дата заполнения:': {
         this.props.dispatch(actions.changeDate(event.target.value));
-        errorMessage[6].style.display = "block";
+        const date = /(0[1-9]|[12][0-9]|3[01])[- ..](0[1-9]|1[012])[- ..](19|20)\d\d/g;
+        errorMessage[6].style.display = (date.test(event.target.value)) ? "none" : "block";
       } break;
       default: return undefined;
     }

@@ -5,16 +5,16 @@ import Document from './document';
 
 export default class Layout extends React.Component {
   render() {
-    const Header = () => <div className="main-header"> Резюме </div>;
-    const Footer = () => <div className="main-footer"> Подпись__________________ </div>;
+    const Header = () => <h2> Резюме </h2>;
+    const Footer = () => <div> Подпись__________________ </div>;
     return (
       <div>
-        <Header />
+        <Header className="main-header" />
         <section className="content">
           <Form />
           <Document />
         </section>
-        <Footer />
+        <Footer className="main-footer" />
       </div>
     );
   }

@@ -15,7 +15,7 @@ export default class Form extends React.Component {
         <DataRow name="Контактный телефон:" error="Телефон должен быть вида 89876543210"/>
         <DataRow name="Опыт работы:" error="Обязательное поле"/>
         <DataRow name="Образование:" error="Обязательное поле"/>
-        <DataRow name="Дата заполнения:" error="Дата должна быть вида дд:мм:гггг"/>
+        <DataRow name="Дата заполнения:" error="Дата должна быть вида дд.мм.гггг"/>
         <button>Отправить</button>
       </form>
     );
