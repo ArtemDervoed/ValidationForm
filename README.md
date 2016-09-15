@@ -1,1 +1,1 @@
-Cкелет frontend проекта
+https://artemdervoed.github.io/ValidationForm/

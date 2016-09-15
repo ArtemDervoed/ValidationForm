@@ -5,5 +5,4 @@ export const store = createStore(reducers);
 
 store.subscribe(() => {
   console.log("changed", store.getState());
-  // console.log(store.getState().user.vacansy);
 });

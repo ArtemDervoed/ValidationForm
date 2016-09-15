@@ -10,7 +10,8 @@
     "lintxo": "xo *.js && xo app/scripts/**/*.js webpack/**/*.js --esnext",
     "dev": "MODE=DEBUG node ./run-dev.js",
     "dist": "MODE=DIST node ./run-build.js",
-    "prod": "MODE=PROD node ./run-build.js"
+    "prod": "MODE=PROD node ./run-build.js",
+    "precommit": "npm run test"
   },
   "dependencies": {
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
@@ -25,6 +26,7 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.6.1",
     "redux": "^3.5.2",
+    "redux-form": "^6.0.2",
     "reset.css": "^2.0.2",
     "simple-blocks": "lexich/simple-blocks",
     "sp-utils-bootstrapmodal": "lexich/sp-utils-bootstrapmodal",

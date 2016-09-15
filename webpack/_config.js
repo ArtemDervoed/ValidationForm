@@ -18,7 +18,8 @@ const doConfig = opts => {
       extensions: [
         '',
         '.js',
-        '.coffee',
+        '.jsx',
+        '.coffee'
       ],
       modulesDirectoriess: ['node_modules'],
       alias: require('./_aliases'),
@@ -49,6 +50,10 @@ const doConfig = opts => {
         {
           test: /\.coffee$/,
           loader: 'coffee',
+        },
+        {
+          test: /\.jsx$/,
+          loader: 'jsx-loader',
         },
         {
           test: /\.jade$/,

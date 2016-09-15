@@ -1,78 +1,81 @@
-export const changeFullName = (fullName) => {
+/* eslint-disable no-unused-vars */
+import * as actionstype from './actionstype';
+
+export const changeFullName = fullName => {
   return {
-    type: "CHANGE_FULL_NAME",
+    type: actionstype.CHANGE_FULL_NAME,
     payload: fullName,
   };
 };
-export const changeVacancy = (vacancy) => {
+export const changeVacancy = vacancy => {
   return {
-   type: "CHANGE_VACANCY",
+    type: actionstype.CHANGE_VACANCY,
     payload: vacancy,
   };
 };
-export const changeCash = (cash) => {
+export const changeCash = cash => {
   return {
-    type: "CHANGE_CASH",
+    type: actionstype.CHANGE_CASH,
     payload: cash,
   };
 };
-export const changePhone = (phone) => {
+export const changePhone = phone => {
   return {
-    type: "CHANGE_PHONE",
+    type: actionstype.CHANGE_PHONE,
     payload: phone,
   };
 };
-export const changeMail = (mail) => {
+export const changeMail = mail => {
   return {
-    type: "CHANGE_MAIL",
+    type: actionstype.CHANGE_MAIL,
     payload: mail,
   };
 };
-export const changeNationality = (nationality) => {
+export const changeNationality = nationality => {
   return {
-    type: "CHANGE_NATIONALITY",
+    type: actionstype.CHANGE_NATIONALITY,
     payload: nationality,
   };
 };
-export const changeGender = (gender) => {
+export const changeGender = gender => {
   return {
-    type: "CHANGE_GENDER",
+    type: actionstype.CHANGE_GENDER,
     payload: gender,
   };
 };
-export const changeAge = (age) => {
+export const changeAge = age => {
   return {
-    type: "CHANGE_AGE",
+    type: actionstype.CHANGE_AGE,
     payload: age,
   };
 };
-export const changeMarried = (married) => {
+export const changeMarried = married => {
   return {
-    type: "CHANGE_MARRIED",
+    type: actionstype.CHANGE_MARRIED,
     payload: married,
   };
 };
-export const changeEducation = (education) => {
+export const changeEducation = education => {
   return {
-    type: "CHANGE_EDUCATION",
+    type: actionstype.CHANGE_EDUCATION,
     payload: education,
   };
 };
-export const changeExperience = (experience) => {
+export const changeExperience = experience => {
   return {
-    type: "CHANGE_EXPEREINCE",
+    type: actionstype.CHANGE_EXPEREINCE,
     payload: experience,
   };
 };
-export const changeDate = (date) => {
+export const changeDate = date => {
   return {
-    type: "CHANGE_DATE",
+    type: actionstype.CHANGE_DATE,
     payload: date,
   };
 };
-export const changeValid = (valid) => {
+export const changeValid = valid => {
   return {
-    type: "CHANGE_VALID",
+    type: actionstype.CHANGE_VALID,
     payload: valid,
   };
 };
