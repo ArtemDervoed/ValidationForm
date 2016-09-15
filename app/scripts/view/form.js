@@ -9,12 +9,13 @@ export default class Form extends React.Component {
   render() {
     return (
       <form className="content--col">
-        <DataRow name="Вакансия: " error="Обязательное поле"/>
-        <DataRow name="ФИО: " error="Обязательное поле"/>
-        <DataRow name="Mail: " error=""/>
-        <DataRow name="Контактный телефон: " error="Телефон должен быть вида 89876543210"/>
-        <DataRow name="Опыт работы: " error=""/>
-        <DataRow name="Дата заполнения: " error="Дата должна быть вида дд:мм:гггг"/>
+        <DataRow name="Вакансия:" error="Обязательное поле"/>
+        <DataRow name="ФИО:" error="Введите полные ФИО"/>
+        <DataRow name="Mail:" error="Обязательное поле"/>
+        <DataRow name="Контактный телефон:" error="Телефон должен быть вида 89876543210"/>
+        <DataRow name="Опыт работы:" error=""/>
+        <DataRow name="Образование:" error=""/>
+        <DataRow name="Дата заполнения:" error="Дата должна быть вида дд:мм:гггг"/>
         <button>Отправить</button>
       </form>
     );
