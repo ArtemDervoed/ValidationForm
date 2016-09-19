@@ -2,6 +2,15 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions/actions';
 
+// REVIEW: Изучи формы в html, ты неправильно используешь label
+
+// REVIEW: мне пока не нравится сам процесс валидации в общем и в частности мне
+// не нравится тексты валидации некоторых полей. Можешь пока представить себя
+// пользователем и подумать, что именно можно изменить и как улучшить валидацию.
+
+// REVIEW: inputEventHandler - не нравится название. Тем более, оно не отражает
+// действительность. Возможно я уже писала рекомендацию по названию. Предлагаю
+// тебе подумать, как можно было бы назвать
 export default class DataRow extends React.Component {
   inputEventHandler(event) {
     const errorMessage = document.querySelectorAll('.content--form--row-error');

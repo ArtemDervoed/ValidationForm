@@ -5,6 +5,12 @@ import DataRow from './formDataRow';
 import React from 'react';
 import {connect} from 'react-redux';
 
+// REVIEW: Не нравится иерархия классов, которую ты используешь в описании
+// формы и документа. Форма и документ должны быть изолированными,
+// законченными компонентами, но сейчас у тебя иерархия классов не позволяет
+// их использовать отдельно от контента. Предлагаю тебе подумать, как это можно сделать
+
+// REVIEW: Нажатие на кнопку button не должно перезагружать страницу
 export default class Form extends React.Component {
   render() {
     return (
