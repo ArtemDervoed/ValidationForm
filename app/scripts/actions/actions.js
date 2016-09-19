@@ -1,4 +1,7 @@
 /* eslint-disable no-unused-vars */
+// REVIEW: круто, только давай назовём файл корректнее.
+// Сейчас название переводится как "тип действий"
+// И правильнее было бы использовать camelcase
 import * as actionstype from './actionstype';
 
 export const changeFullName = fullName => {
