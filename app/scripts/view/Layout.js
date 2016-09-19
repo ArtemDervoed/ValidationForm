@@ -1,20 +1,20 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import Form from './form';
-import Document from './document';
+import Form from './Form';
+import Document from './Document';
 
 export default class Layout extends React.Component {
   render() {
-    const Header = () => <h2> Резюме </h2>;
-    const Footer = () => <div> Подпись__________________ </div>;
     return (
       <div>
-        <Header className="main-header" />
+        <header className="top-header">
+          <h2>Бланк №007</h2>
+        </header>
         <section className="content">
           <Form />
           <Document />
         </section>
-        <Footer className="main-footer" />
+        <footer className="bottom-footer">Подпись________</footer>
       </div>
     );
   }
