@@ -1,5 +1,7 @@
 import * as actions from '../actions';
 
+// REVIEW: мне не нравится название тестов.
+// Я уже говорила, почему. Предлагаю тебе подумать и предложить другие названия.
 describe('actions work', () => {
   it('changeFullName', () => {
     expect(actions.changeFullName('New User')).to.be.eql({

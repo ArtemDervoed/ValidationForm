@@ -3,6 +3,9 @@ import React from 'react';
 import Form from './Form';
 import Document from './Document';
 
+// REVIEW: Почему ты решил использовать префикс main- для хедера и футера?
+// Предлагаю тебе подумать, как лучше назвать классы самых высокоуровневых
+// элементов (хедер, контент, футер) и почему так
 export default class Layout extends React.Component {
   render() {
     return (
