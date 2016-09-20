@@ -3,6 +3,11 @@
   font-size: 12px;
   color: red;
 }
+.form--row-error-empty {
+  display: none;
+  font-size: 12px;
+  color: red;
+}
 .content--col {
   margin: 10px;
   border: solid gray 2px;

@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import {combineReducers} from 'redux';
-import {checkedState} from '../checkedState';
 
 const initialState = {
   vacansy: '',
