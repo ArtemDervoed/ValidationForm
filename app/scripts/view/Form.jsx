@@ -9,8 +9,20 @@ import * as API from './../API';
 
 export default class Form extends React.Component {
   onSubmit(event) {
-    API.addData(Math.random(), this.props.main);
-    // kek is here
+    if (this.isValid(checkedEmpty, checkedValid)) {
+      API.addData(Math.random(), this.props.main);
+    } else {
+      alert('Не все поля формы корректно заполнены');
+      event.preventDefault();
+    }
+  }
+  isValid(empty, state) {
+    for (const i in empty) {
+      if (!empty[i] || !state[i]) {
+        return false;
+      }
+    }
+    return true;
   }
   render() {
     return (
@@ -22,7 +34,7 @@ export default class Form extends React.Component {
         <FormRow name="Опыт работы:" error="Обязательное поле" errorEmpty="Вы не заполнили поле"/>
         <FormRow name="Образование:" error="Обязательное поле" errorEmpty="Вы не заполнили поле"/>
         <FormRow name="Дата заполнения:" error="Дата должна быть вида дд.мм.гггг" errorEmpty="Вы не заполнили поле"/>
-        <input type="button" onClick={this.onSubmit.bind(this)} value="Отправить"/>
+        <button className="form-send" onClick={this.onSubmit.bind(this)}>Отправить</button>
       </form>
     );
   }

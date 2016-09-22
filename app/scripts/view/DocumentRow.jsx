@@ -4,10 +4,10 @@ import {connect} from 'react-redux';
 export default class DocumentDataRow extends React.Component {
   render() {
     return (
-      <section className="document--row">
+      <article className="document--row">
         <div className="document--row-label">{this.props.name} </div>
         <span className="document--row-data"> {this.props.data}</span>
-      </section>
+      </article>
     );
   }
 }

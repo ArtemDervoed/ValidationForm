@@ -37,6 +37,8 @@
   flex-direction: row;
 }
 
-button {
-  margin: 5px 110px;
+.form-send {
+  margin: 5px 80px;
+  width: 150px;
+  height: 25px;
 }

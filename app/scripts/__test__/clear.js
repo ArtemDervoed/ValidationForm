@@ -1,6 +1,6 @@
 import * as API from './../API';
 
-describe('test storage', () => {
+describe('storage', () => {
   it('claer all storage', () => {
     localStorage.clear();
     API.addData('1', {first: "test 1th"});

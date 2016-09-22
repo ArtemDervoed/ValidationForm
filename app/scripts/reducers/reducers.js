@@ -36,7 +36,7 @@ const main = (
     case 'CHANGE_DATE': {
       newState = Object.assign({}, state, {date: action.payload});
     } break;
-    default: return state;
+    default: return Object.assign({}, state, {});
   }
   return newState;
 };

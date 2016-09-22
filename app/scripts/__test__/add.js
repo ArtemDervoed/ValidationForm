@@ -1,7 +1,7 @@
 import * as API from '../API';
 
-describe('test storage', () => {
-  it('add data', () => {
+describe('storage', () => {
+  it('add data in API', () => {
     API.addData('1', {first: "test 1th"});
     API.addData('2', {second: "test 2nd"});
     API.addData('3', {third: "test 3rd"});
