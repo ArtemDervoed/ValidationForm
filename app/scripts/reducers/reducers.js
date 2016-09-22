@@ -13,31 +13,32 @@ const initialState = {
 
 const main = (
   state = initialState, action) => {
+  let newState = {};
   switch (action.type) {
     case 'CHANGE_VACANCY': {
-      state = {...state, vacansy: action.payload};
+      newState = Object.assign({}, state, {vacansy: action.payload});
     } break;
     case 'CHANGE_FULL_NAME': {
-      state = {...state, fullName: action.payload};
+      newState = Object.assign({}, state, {fullName: action.payload});
     } break;
     case 'CHANGE_PHONE': {
-      state = {...state, phone: action.payload};
+      newState = Object.assign({}, state, {phone: action.payload});
     } break;
     case 'CHANGE_MAIL': {
-      state = {...state, mail: action.payload};
+      newState = Object.assign({}, state, {mail: action.payload});
     } break;
     case 'CHANGE_EDUCATION': {
-      state = {...state, education: action.payload};
+      newState = Object.assign({}, state, {education: action.payload});
     } break;
     case 'CHANGE_EXPEREINCE': {
-      state = {...state, experience: action.payload};
+      newState = Object.assign({}, state, {experience: action.payload});
     } break;
     case 'CHANGE_DATE': {
-      state = {...state, date: action.payload};
+      newState = Object.assign({}, state, {date: action.payload});
     } break;
     default: return state;
   }
-  return state;
+  return newState;
 };
 export const reducers = combineReducers({
   main,

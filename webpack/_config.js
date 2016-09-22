@@ -43,7 +43,7 @@ const doConfig = opts => {
           exclude: /(node_modules|bower_components)/,
           loader: 'babel',
           query: {
-            presets: ['react', 'es2015', 'stage-0'],
+            presets: ['es2015', 'react', 'stage-0'],
             plugins: ['add-module-exports', 'transform-decorators-legacy'],
           },
         },
@@ -51,10 +51,10 @@ const doConfig = opts => {
           test: /\.coffee$/,
           loader: 'coffee',
         },
-        {
-          test: /\.jsx$/,
-          loader: 'jsx-loader',
-        },
+        // {
+        //   test: /\.jsx$/,
+        //   loader: 'jsx-loader',
+        // },
         {
           test: /\.jade$/,
           loader: 'jade',

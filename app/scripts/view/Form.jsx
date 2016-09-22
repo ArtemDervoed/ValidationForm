@@ -1,20 +1,16 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-alert */
 import FormRow from './FormRow';
-import {checked} from './FormRow';
+import {checkedEmpty} from './FormRow';
+import {checkedValid} from './FormRow';
 import React from 'react';
 import {connect} from 'react-redux';
 import * as API from './../API';
 
 export default class Form extends React.Component {
   onSubmit(event) {
-    for (const i in checked) {
-      if (!checked[i]) {
-        alert('Не корректно заполнена форма');
-        return;
-      }
-    }
     API.addData(Math.random(), this.props.main);
+    // kek is here
   }
   render() {
     return (
