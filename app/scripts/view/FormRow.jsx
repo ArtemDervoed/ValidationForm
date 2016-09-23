@@ -112,7 +112,7 @@ export default class DataRow extends React.Component {
   render() {
     return (
       <article className="form--row">
-        <div className="form--row-label">{this.props.name}</div>
+        <div className="form--row-header">{this.props.name}</div>
         <input className="form--row-input" onBlur={this.onInputBlur.bind(this)} onChange={this.onInputClick.bind(this)} />
         <div className="form--row-error-empty">{this.props.errorEmpty} </div>
         <div className="form--row-error">{this.props.error} </div>

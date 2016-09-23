@@ -5,7 +5,7 @@ export default class DocumentDataRow extends React.Component {
   render() {
     return (
       <article className="document--row">
-        <div className="document--row-label">{this.props.name} </div>
+        <div className="document--row-header">{this.props.name} </div>
         <span className="document--row-data"> {this.props.data}</span>
       </article>
     );

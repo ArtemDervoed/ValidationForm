@@ -26,7 +26,7 @@ export default class Form extends React.Component {
   }
   render() {
     return (
-      <form method="post" className="content--col">
+      <form className="content--col">
         <FormRow name="Вакансия:" error="Обязательное поле" errorEmpty="Вы не заполнили поле"/>
         <FormRow name="ФИО:" error="Возможно вы не полностью внесли свои ФИО или допустили ошибку" errorEmpty="Вы не заполнили поле"/>
         <FormRow name="Mail:" error="Поле должно быть вида userAdress@email.bb" errorEmpty="Вы не заполнили поле"/>
