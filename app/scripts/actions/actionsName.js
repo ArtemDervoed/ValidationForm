@@ -1,4 +1,6 @@
 /* eslint-disable no-unused-vars */
+// REVIEW: предлагаю переименовать файл в actionTypes - это именно то,
+// что он содержит
 export const CHANGE_VACANCY = 'CHANGE_VACANCY';
 export const CHANGE_FULL_NAME = 'CHANGE_FULL_NAME';
 export const CHANGE_CASH = 'CHANGE_CASH';

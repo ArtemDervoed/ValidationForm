@@ -11,6 +11,10 @@ const initialState = {
   date: '',
 };
 
+// REVIEW: предлагаю переименовать во что-то более соответствующее действительности
+//  По сути - это данные о нанимаемом
+// Ты просил ресурс по именованию - почитай тут https://learn.javascript.ru/variable-names
+// REVIEW: а где тесты редьюсеров?
 const main = (
   state = initialState, action) => {
   let newState = {};

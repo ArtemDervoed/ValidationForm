@@ -5,6 +5,7 @@ import {checkedEmpty} from './FormRow';
 import {checkedValid} from './FormRow';
 import React from 'react';
 import {connect} from 'react-redux';
+// REVIEW: эквивалентно '../API'
 import * as API from './../API';
 
 export default class Form extends React.Component {
@@ -17,6 +18,8 @@ export default class Form extends React.Component {
     }
   }
   isValid(empty, state) {
+    // REVIEW: https://learn.javascript.ru/array-iteration#foreach
+    // а ещё есть отличная библиотека lodash
     for (const i in empty) {
       if (!empty[i] || !state[i]) {
         return false;
@@ -24,6 +27,9 @@ export default class Form extends React.Component {
     }
     return true;
   }
+  // REVIEW: у тебя есть .form--row, но нет .form. Форма должна носить 2 класса - content--col,
+  // который привязывает её к контенту и содержит стили расположения в блоке content,
+  // и класс form - это класс самой формы с её стилями. form-send - лучше сделай по БЭМ
   render() {
     return (
       <form className="content--col">

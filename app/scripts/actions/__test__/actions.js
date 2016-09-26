@@ -1,4 +1,5 @@
 import * as actions from '../actions';
+// REVIEW: ты же можешь тут импортировать типы действий
 
 describe('actions', () => {
   it('Change users full name', () => {

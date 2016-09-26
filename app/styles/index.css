@@ -19,6 +19,8 @@
 .form--row {
   width: 300px;
   height: 45px;
+  /* REVIEW: почему бы горизонтальный паддинг не вынести в родителя,
+  а вертикально делать отступ с помощью margin?*/
   padding: 5px;
   display: flex;
   flex-direction: column;
@@ -36,7 +38,8 @@
   display: flex;
   flex-direction: row;
 }
-
+/* REVIEW: что, если ширина формы поменяется? Или ширина кнопки? Тебе придётся каждый раз
+переписывать margin. Ты можешь этого избежать, располагая кнопку всегда по центру */
 .form-send {
   margin: 5px 80px;
   width: 150px;
