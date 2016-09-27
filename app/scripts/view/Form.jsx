@@ -27,7 +27,6 @@ export default class Form extends React.Component {
     return (counter === 7);
   }
   onSubmit(event) {
-    console.log(this.isValid(isValid));
     if (this.isValid(isValid)) {
       API.addData(Math.random(), this.props.userData);
     } else {
@@ -35,6 +34,7 @@ export default class Form extends React.Component {
       event.preventDefault();
     }
   }
+
   onChangeVacancy(event) {
     this.dispatch(actions.changeVacancy(event.target.value));
     isValid.vacancy = this.userData.vacancy.length !== 0;
@@ -91,13 +91,14 @@ export default class Form extends React.Component {
     return newData.length > 0;
   }
   validationData(newData) {
-    const date = /(0[1-9]|[12][0-9]|3[01])[- ..](0[1-9]|1[012])[- ..](19|20)\d\d/;
+    const date = /(0[1-9]|[12][0-9]|3[01])[- ..](0[1-9]|1[012])[- ..](19|20)\d\d$/;
     isValid.date = date.test(newData);
     return date.test(newData);
   }
   isInputEmpty(event) {
     return event.target.value.length === 0;
   }
+
   render() {
     return (
       <form className="content--col form">

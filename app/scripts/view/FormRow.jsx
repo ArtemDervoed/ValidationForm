@@ -1,6 +1,25 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+export const checkedEmpty = {
+  vacansy: false,
+  fullName: false,
+  phone: false,
+  mail: false,
+  education: false,
+  experience: false,
+  date: false,
+};
+export const checkedValid = {
+  vacansy: false,
+  fullName: false,
+  phone: false,
+  mail: false,
+  education: false,
+  experience: false,
+  date: false,
+};
+
 export default class DataRow extends React.Component {
   onInputBlur(event) {
     const errorEmptyClassName = event.target.parentNode.parentNode.childNodes[1].classList;
@@ -13,6 +32,7 @@ export default class DataRow extends React.Component {
       errorEmptyClassName.add("_hidden");
     }
   }
+
   onInputChange(event) {
     this.props.onChange(event);
     const errorValidation = event.target.parentNode.parentNode.childNodes[2].classList;

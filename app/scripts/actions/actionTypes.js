@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 export const CHANGE_VACANCY = 'CHANGE_VACANCY';
 export const CHANGE_FULL_NAME = 'CHANGE_FULL_NAME';
 export const CHANGE_CASH = 'CHANGE_CASH';
