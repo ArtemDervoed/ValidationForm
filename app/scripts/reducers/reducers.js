@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-import {combineReducers} from 'redux';
 
 const initialState = {
   vacancy: '',
@@ -11,7 +10,7 @@ const initialState = {
   date: '',
 };
 
-const userData = (
+export const userData = (
   state = initialState, action) => {
   let newState = {};
   switch (action.type) {
@@ -40,6 +39,3 @@ const userData = (
   }
   return newState;
 };
-export const reducers = combineReducers({
-  userData,
-});
