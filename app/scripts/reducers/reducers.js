@@ -2,7 +2,7 @@
 import {combineReducers} from 'redux';
 
 const initialState = {
-  vacansy: '',
+  vacancy: '',
   fullName: '',
   phone: '',
   mail: '',
@@ -11,12 +11,12 @@ const initialState = {
   date: '',
 };
 
-const main = (
+const userData = (
   state = initialState, action) => {
   let newState = {};
   switch (action.type) {
     case 'CHANGE_VACANCY': {
-      newState = Object.assign({}, state, {vacansy: action.payload});
+      newState = Object.assign({}, state, {vacancy: action.payload});
     } break;
     case 'CHANGE_FULL_NAME': {
       newState = Object.assign({}, state, {fullName: action.payload});
@@ -41,5 +41,5 @@ const main = (
   return newState;
 };
 export const reducers = combineReducers({
-  main,
+  userData,
 });
