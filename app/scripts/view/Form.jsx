@@ -39,10 +39,10 @@ export default class Form extends React.Component {
       event.preventDefault();
     }
   }
-  // REVIEW: я бы вызывала onChange для всех, а внутри - вызов
-  // универсальной функции валидации, в которой можно switch/case
-  // поставить в зависимости от того, для кого была вызвана эта функция
-  // и тексты ошибок тоже можно в ней возвращать
+  // REVIEW: у тебя же был вроде общий метод для валидации всего?
+  // Только в FormRow он был неуместен - а здесь было бы хорошо его использовать,
+  // не нужно было разбивать его на мелкие методы.
+  // и тексты ошибок тоже можно в нём возвращать
   onChangeVacancy(event) {
     this.dispatch(actions.changeVacancy(event.target.value));
     dataState.vacancy = this.vacancy.length !== 0;
