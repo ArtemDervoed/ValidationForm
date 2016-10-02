@@ -15,6 +15,7 @@ export const userData = (
   let newState = {};
   switch (action.type) {
     case 'CHANGE_VACANCY': {
+      // REVIEW: тут можно более компактно написать на ES6
       newState = Object.assign({}, state, {vacancy: action.payload});
     } break;
     case 'CHANGE_FULL_NAME': {
