@@ -5,6 +5,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as API from '../API';
 import * as actions from '../actions/actions';
+// REVIEW: правильнее было бы импортировать отдельную функцию, а не всю библиотеку
+// нас главной странице https://lodash.com/ написано, как это сделать, только используй
+// import, а не require
 import * as lodash from 'lodash';
 
 const dataState = {
@@ -17,6 +20,8 @@ const dataState = {
   date: false,
 };
 export default class Form extends React.Component {
+  // REVIEW: а если ты будешь добавлять поля? Тебе придётся и этот код менять?
+  // подумай, как сделать его более универсальным
   isValid(state) {
     let counter = 0;
     lodash.forIn(state, (key, value) => {
@@ -34,7 +39,10 @@ export default class Form extends React.Component {
       event.preventDefault();
     }
   }
-
+  // REVIEW: у тебя же был вроде общий метод для валидации всего?
+  // Только в FormRow он был неуместен - а здесь было бы хорошо его использовать,
+  // не нужно было разбивать его на мелкие методы.
+  // и тексты ошибок тоже можно в нём возвращать
   onChangeVacancy(event) {
     this.dispatch(actions.changeVacancy(event.target.value));
     dataState.vacancy = this.vacancy.length !== 0;
