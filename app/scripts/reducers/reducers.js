@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-
 const initialState = {
   vacancy: '',
   fullName: '',
@@ -15,26 +14,25 @@ export const userData = (
   let newState = {};
   switch (action.type) {
     case 'CHANGE_VACANCY': {
-      // REVIEW: тут можно более компактно написать на ES6
-      newState = Object.assign({}, state, {vacancy: action.payload});
+      newState = {...state, vacancy: action.payload};
     } break;
     case 'CHANGE_FULL_NAME': {
-      newState = Object.assign({}, state, {fullName: action.payload});
+      newState = {...state, fullName: action.payload};
     } break;
     case 'CHANGE_PHONE': {
-      newState = Object.assign({}, state, {phone: action.payload});
+      newState = {...state, phone: action.payload};
     } break;
     case 'CHANGE_MAIL': {
-      newState = Object.assign({}, state, {mail: action.payload});
+      newState = {...state, mail: action.payload};
     } break;
     case 'CHANGE_EDUCATION': {
-      newState = Object.assign({}, state, {education: action.payload});
+      newState = {...state, education: action.payload};
     } break;
     case 'CHANGE_EXPEREINCE': {
-      newState = Object.assign({}, state, {experience: action.payload});
+      newState = {...state, experience: action.payload};
     } break;
     case 'CHANGE_DATE': {
-      newState = Object.assign({}, state, {date: action.payload});
+      newState = {...state, date: action.payload};
     } break;
     default: return Object.assign({}, state, {});
   }

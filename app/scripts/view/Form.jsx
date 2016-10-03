@@ -5,10 +5,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as API from '../API';
 import * as actions from '../actions/actions';
-// REVIEW: правильнее было бы импортировать отдельную функцию, а не всю библиотеку
-// нас главной странице https://lodash.com/ написано, как это сделать, только используй
-// import, а не require
-import * as lodash from 'lodash';
+import {forIn} from 'lodash';
 
 const dataState = {
   vacancy: false,
@@ -20,16 +17,16 @@ const dataState = {
   date: false,
 };
 export default class Form extends React.Component {
-  // REVIEW: а если ты будешь добавлять поля? Тебе придётся и этот код менять?
-  // подумай, как сделать его более универсальным
   isValid(state) {
     let counter = 0;
-    lodash.forIn(state, (key, value) => {
+    let length = 0;
+    forIn(state, (key, value) => {
+      length++;
       if (key) {
         counter++;
       }
     });
-    return (counter === 7);
+    return (counter === length);
   }
   onSubmit(event) {
     if (this.isValid(dataState)) {
@@ -89,7 +86,7 @@ export default class Form extends React.Component {
     const phone = /^\d{1}-\d{3}-\d{3}-\d{4}$/;
     dataState.phone = phone.test(newData);
     return phone.test(newData);
-  }isInputEmpty
+  }
   validationExperince(newData) {
     dataState.experience = newData.length > 0;
     return newData.length > 0;

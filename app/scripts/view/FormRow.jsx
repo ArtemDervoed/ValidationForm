@@ -1,34 +1,28 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-export default class DataRow extends React.Component {
-  // REVIEW: по сути, у нас должен быть один блок, в котором отображается валидация
-  // а сам текст должен разруливаться в форме
+export default class FormRow extends React.Component {
+  componentDidMount() {
+    this._error = this.refs.error.classList;
+  }
   onInputBlur(event) {
-    // REVIEW: опять ты обращаешься к элементам по положению в DOM-дереве
-    // используй ref вместо этого
-    // https://facebook.github.io/react/docs/more-about-refs.html
-    const errorEmptyClassName = event.target.parentNode.parentNode.childNodes[1].classList;
-    const errorValidation = event.target.parentNode.parentNode.childNodes[2].classList;
     if (this.props.onBlur(event)) {
-      errorEmptyClassName.remove("__hidden");
-      errorValidation.add("__hidden");
+      this._error.remove("__hidden");
+      this.refs.error.innerHTML = this.props.emptyFieldError;
     }
     if (!this.props.onBlur(event)) {
-      errorEmptyClassName.add("__hidden");
+      this.refs.error.innerHTML = this.props.error;
     }
   }
 
   onInputChange(event) {
     this.props.onChange(event);
-    const errorValidation = event.target.parentNode.parentNode.childNodes[2].classList;
-    const errorEmptyClassName = event.target.parentNode.parentNode.childNodes[1].classList;
     if (!this.props.validation(event.target.value)) {
-      errorValidation.remove("__hidden");
-      errorEmptyClassName.add("__hidden");
+      this.refs.error.innerHTML = this.props.error;
     }
     if (this.props.validation(event.target.value)) {
-      errorValidation.add("__hidden");
+      this._error.add("__hidden");
+      this.refs.error.innerHTML = this.props.emptyFieldError;
     }
   }
   render() {
@@ -37,8 +31,7 @@ export default class DataRow extends React.Component {
         <label className="form--row-header">{this.props.name}
           <input className="form--row-input" onBlur={this.onInputBlur.bind(this)} onChange={this.onInputChange.bind(this)} />
         </label>
-        <div className="form--row-error-empty __hidden">{this.props.emptyFieldError} </div>
-        <div className="form--row-error __hidden">{this.props.error} </div>
+        <div className="form--row-error __hidden" ref="error"/>
       </div>
     );
   }
@@ -47,4 +40,4 @@ const	mapStateToProps	=	state	=> ({
   ...state,
 });
 
-export default connect(mapStateToProps)(DataRow);
+export default connect(mapStateToProps)(FormRow);
