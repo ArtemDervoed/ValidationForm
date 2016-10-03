@@ -16,11 +16,11 @@ export default class FormRow extends React.Component {
   }
 
   onInputChange(event) {
-    this.props.onChange(event);
-    if (!this.props.validation(event.target.value)) {
+    this.props.onChange(event, this.props.name);
+    if (!this.props.validation(event.target.value, this.props.name)) {
       this.refs.error.innerHTML = this.props.error;
     }
-    if (this.props.validation(event.target.value)) {
+    if (this.props.validation(event.target.value, this.props.name)) {
       this._error.add("__hidden");
       this.refs.error.innerHTML = this.props.emptyFieldError;
     }
