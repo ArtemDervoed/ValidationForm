@@ -103,7 +103,7 @@ export default class Form extends React.Component {
         dataState.date = date.test(newData);
         return date.test(newData);
       }
-      default: return '';
+      default: return false;
     }
   }
   isInputEmpty(event) {
