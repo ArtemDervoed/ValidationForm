@@ -17,6 +17,20 @@ const dataState = {
   date: false,
 };
 export default class Form extends React.Component {
+  // REVIEW: Вот, что я хотела увидеть.
+  // Здесь тебе не нужны лишние переменные
+  // И в случае, если в цикле был найден ключ со значением false -
+  //  цикл останавливается и выдаёт невалидность
+  // isValid() {
+  //   let allValid = true;
+  //   forIn(dataState, (value, key) => {
+  //     if (!key) {
+  //       allValid = false;
+  //       return;
+  //     }
+  //   });
+  //   return allValid;
+  // }
   isValid(state) {
     let counter = 0;
     let length = 0;
