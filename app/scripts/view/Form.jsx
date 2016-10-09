@@ -44,6 +44,8 @@ export default class Form extends React.Component {
   }
   onSubmit(event) {
     if (this.isValid(dataState)) {
+      // REVIEW: в будущем неудобно будет работать с сохранёнными данными - ты не
+      // сможешь получить их из-за их имени
       API.addData(Math.random(), this.props);
     } else {
       alert('Не все поля формы корректно заполнены');
