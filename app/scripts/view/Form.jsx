@@ -125,7 +125,10 @@ export default class Form extends React.Component {
   isInputEmpty(event) {
     return event.target.value.length === 0;
   }
-
+  // REVIEW: будет лучше, если каждый элемент FormRow будет иметь в качестве name
+  // название на английском и оно будет не зависимо от того, что будет написано в label,
+  // т.к. если в будущем заказчик попросит поменять текст label, тебе придётся менять
+  // и валидацию в том числе
   render() {
     return (
       <form className="content--col form">
