@@ -3,6 +3,9 @@ import {connect} from 'react-redux';
 
 export default class FormRow extends React.Component {
   componentDidMount() {
+    // REVIEW: Именование переменной не соответствует её предназначению
+    // Ты можешь, например, задать this.errorClasses и this.errorText
+    // И я бы предложила использовать toggle() для включения/выключения класса '__hidden'
     this._error = this.refs.error.classList;
   }
   onInputBlur(event) {
